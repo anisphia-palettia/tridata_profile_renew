@@ -3,13 +3,28 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
+import { FloatingWhatsApp } from "@/components/ui/floating-whatsapp";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "Tridata — Internet Cepat & Stabil",
+  title: "Tridata — Internet Murah Madiun, Samarinda, Ponorogo & Pacitan",
   description:
-    "PT Trisari Data Indonusa — Penyedia layanan internet cepat, stabil, dan terjangkau di wilayah Madiun dan sekitarnya.",
+    "Trisari Data Indonusa (Tridata) — Provider penyedia layanan paket internet murah, WiFi cepat, stabil, dan tanpa batasan kuota (FUP) di area Madiun, Ponorogo, Pacitan, dan Samarinda.",
+  keywords: [
+    "internet murah madiun",
+    "internet murah samarinda",
+    "internet murah ponorogo",
+    "internet murah pacitan",
+    "pasang wifi madiun",
+    "provider internet cepat",
+    "wifi tanpa fup",
+    "trisari data indonusa"
+  ],
+  icons: {
+    icon: "/logo.jpg",
+    apple: "/logo.jpg",
+  },
 };
 
 export default function RootLayout({
@@ -31,6 +46,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <FloatingWhatsApp />
         </ThemeProvider>
       </body>
     </html>

@@ -6,91 +6,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { FadeIn } from "@/components/ui/fade-in";
+import { Check } from "lucide-react";
 
-interface Package {
-  name: string;
-  label: string;
-  speed: number;
-  priceMadiun: number;
-  priceSamarinda: number;
-  suitableFor: string;
-  badge: string;
-}
-
-const packages: Package[] = [
-  {
-    name: "super-hemat-35",
-    label: "Super Hemat 35 Mbps",
-    speed: 35,
-    priceMadiun: 100_000,
-    priceSamarinda: 125_000,
-    suitableFor: "penggunaan harian ringan",
-    badge: "New!",
-  },
-  {
-    name: "hemat-40",
-    label: "Hemat 40 Mbps",
-    speed: 40,
-    priceMadiun: 110_000,
-    priceSamarinda: 135_000,
-    suitableFor: "penggunaan harian ringan",
-    badge: "",
-  },
-  {
-    name: "hemat-45",
-    label: "Hemat 45 Mbps",
-    speed: 45,
-    priceMadiun: 125_000,
-    priceSamarinda: 150_000,
-    suitableFor: "streaming & WFH",
-    badge: "",
-  },
-  {
-    name: "hemat-50",
-    label: "Hemat 50 Mbps",
-    speed: 50,
-    priceMadiun: 135_000,
-    priceSamarinda: 165_000,
-    suitableFor: "streaming & WFH",
-    badge: "",
-  },
-  {
-    name: "hemat-55",
-    label: "Hemat 55 Mbps",
-    speed: 55,
-    priceMadiun: 150_000,
-    priceSamarinda: 185_000,
-    suitableFor: "streaming & WFH",
-    badge: "",
-  },
-  {
-    name: "premium-75",
-    label: "Premium 75 Mbps",
-    speed: 75,
-    priceMadiun: 165_000,
-    priceSamarinda: 210_000,
-    suitableFor: "rumah dengan banyak perangkat",
-    badge: "Premium",
-  },
-  {
-    name: "premium-95",
-    label: "Premium 95 Mbps",
-    speed: 95,
-    priceMadiun: 210_000,
-    priceSamarinda: 260_000,
-    suitableFor: "rumah dengan banyak perangkat",
-    badge: "Premium",
-  },
-  {
-    name: "premium-110",
-    label: "Premium 110 Mbps",
-    speed: 110,
-    priceMadiun: 250_000,
-    priceSamarinda: 310_000,
-    suitableFor: "rumah dengan banyak perangkat",
-    badge: "Premium",
-  },
-];
+import { branches, packagesByBranch, type Branch } from "@/data/pricing";
 
 function formatPrice(value: number) {
   return new Intl.NumberFormat("id-ID", {
@@ -101,109 +19,144 @@ function formatPrice(value: number) {
 }
 
 export default function HomePrice() {
-  const [branch, setBranch] = useState<"Madiun" | "Samarinda">("Madiun");
+  const [branch, setBranch] = useState<Branch>("Madiun");
 
   return (
-    <section id="section-pricing">
-      <div className="mx-auto max-w-6xl space-y-10 px-6 py-16">
+    <section id="section-pricing" className="relative py-24 md:py-32">
+      {/* Background gradients */}
+      <div className="absolute inset-0 -z-10 bg-muted/10" />
+      <div className="absolute top-0 right-0 -z-10 h-[500px] w-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+      
+      <div className="mx-auto max-w-6xl px-6">
         {/* Heading */}
-        <header className="space-y-6 text-center">
+        <header className="mx-auto max-w-3xl space-y-6 text-center mb-16">
           <FadeIn>
-            <div className="space-y-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground">
-                Paket internet
-              </p>
-              <h2 className="text-3xl font-extrabold md:text-4xl">
-                Pilih paket sesuai kebutuhan Anda
-              </h2>
-              <p className="mx-auto max-w-2xl text-sm text-muted-foreground">
-                Semua paket Non FUP dengan kuota tanpa batas dan dukungan teknis
-                24/7.
-              </p>
+             <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
+              Harga Spesial
             </div>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <h2 className="text-4xl font-extrabold tracking-tight md:text-5xl">
+              Pilih paket sesuai <br className="hidden md:block"/> kebutuhan Anda
+            </h2>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <p className="text-base text-muted-foreground md:text-lg">
+              Semua paket mendukung koneksi Tanpa FUP dengan kuota tidak terbatas dan dukungan teknis 24/7.
+            </p>
           </FadeIn>
 
           {/* Branch Toggle */}
-          <FadeIn delay={0.1}>
-            <div className="inline-flex items-center justify-center rounded-lg bg-muted p-1">
-              <button
-                onClick={() => setBranch("Madiun")}
-                className={cn(
-                  "inline-flex items-center justify-center whitespace-nowrap rounded-md px-6 py-2.5 text-sm font-medium transition-all",
-                  branch === "Madiun" ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:bg-muted/50"
-                )}
-              >
-                Madiun
-              </button>
-              <button
-                onClick={() => setBranch("Samarinda")}
-                className={cn(
-                  "inline-flex items-center justify-center whitespace-nowrap rounded-md px-6 py-2.5 text-sm font-medium transition-all",
-                  branch === "Samarinda" ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:bg-muted/50"
-                )}
-              >
-                Samarinda
-              </button>
+          <FadeIn delay={0.3}>
+            <div className="mt-4 inline-flex flex-wrap items-center justify-center gap-1 rounded-xl bg-muted/80 p-1 shadow-inner backdrop-blur-md">
+              {branches.map((b) => (
+                <button
+                  key={b}
+                  onClick={() => setBranch(b)}
+                  className={cn(
+                    "inline-flex items-center justify-center whitespace-nowrap rounded-lg px-5 py-2.5 text-sm font-semibold transition-all duration-300",
+                    branch === b
+                      ? "bg-background text-foreground shadow-md scale-100"
+                      : "text-muted-foreground hover:bg-muted/50 hover:text-foreground scale-95",
+                  )}
+                >
+                  {b}
+                </button>
+              ))}
             </div>
           </FadeIn>
         </header>
 
         {/* Grid cards */}
-        <div className="grid gap-6 md:grid-cols-3">
-          {packages.map((pkg, index) => (
-            <FadeIn key={pkg.name} delay={index * 0.1}>
-              <Card className="h-full">
-                <CardContent className="space-y-4 p-6 flex flex-col h-full">
-                  <div className="flex items-center justify-between gap-2">
-                    <h3 className="text-lg font-semibold">{pkg.label}</h3>
-                    {pkg.badge && (
-                      <Badge variant="default" className="text-xs">
-                        {pkg.badge}
-                      </Badge>
-                    )}
-                  </div>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {packagesByBranch[branch].map((pkg, index) => {
+            const isFeatured = pkg.badge === "Premium" || pkg.badge === "Terlaris";
 
-                  <p className="text-xs uppercase tracking-wide text-muted-foreground">
-                    Non FUP · Unlimited
-                  </p>
+            return (
+              <FadeIn key={pkg.name} delay={index * 0.1}>
+                <Card className={cn(
+                  "relative h-full overflow-hidden transition-all duration-500 hover:-translate-y-2",
+                  isFeatured 
+                    ? "border-primary shadow-2xl shadow-primary/10 scale-[1.02] bg-gradient-to-b from-background to-primary/5" 
+                    : "border-muted-foreground/20 bg-background/50 hover:shadow-xl hover:border-primary/50"
+                )}>
+                  {/* Decorative popular ribbon */}
+                  {isFeatured && (
+                    <div className="absolute top-0 right-0 rounded-bl-3xl bg-primary px-6 py-2 text-xs font-bold text-primary-foreground shadow-md">
+                      {pkg.badge}
+                    </div>
+                  )}
 
-                  <div className="mt-2">
-                    <p className="text-xs text-muted-foreground">
-                      Kecepatan hingga
+                  <CardContent className="flex h-full flex-col p-8">
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                       <h3 className="text-xl font-bold">{pkg.label}</h3>
+                       {!isFeatured && pkg.badge && (
+                         <Badge variant="secondary" className="text-xs">
+                           {pkg.badge}
+                         </Badge>
+                       )}
+                    </div>
+
+                    <p className="inline-block rounded-md bg-muted px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground w-fit mb-6">
+                      Tanpa FUP · Tidak Terbatas
                     </p>
-                    <p className="text-3xl font-extrabold">
-                      {pkg.speed}{" "}
-                      <span className="text-base font-semibold">Mbps</span>
-                    </p>
-                  </div>
 
-                  <div className="mt-2">
-                    <p className="text-xs text-muted-foreground">
-                      Harga per bulan ({branch})
-                    </p>
-                    <p className="text-2xl font-bold text-primary">
-                      {formatPrice(branch === "Madiun" ? pkg.priceMadiun : pkg.priceSamarinda)}
-                    </p>
-                  </div>
+                    <div className="mb-2">
+                      <p className="text-sm font-medium text-muted-foreground">
+                        Kecepatan hingga
+                      </p>
+                      <p className="text-4xl font-extrabold tracking-tight">
+                        {pkg.speed}{" "}
+                        <span className="text-lg font-semibold text-muted-foreground">Mbps</span>
+                      </p>
+                    </div>
 
-                  <ul className="space-y-1 text-xs text-muted-foreground mt-4 mb-6 grow">
-                    <li>✓ Instalasi mudah oleh teknisi kami</li>
-                    <li>✓ Dukungan gangguan 24/7</li>
-                    <li>✓ Cocok untuk {pkg.suitableFor}</li>
-                  </ul>
+                    <div className="mb-8">
+                      <p className="text-sm font-medium text-muted-foreground mb-1">
+                        Harga per bulan
+                      </p>
+                      <p className="text-3xl font-extrabold text-primary">
+                        {formatPrice(pkg.price)}
+                      </p>
+                    </div>
 
-                  <Button asChild className="w-full mt-auto">
-                    <a
-                      href="https://wa.me/6285136506354"
-                      target="_blank"
+                    <ul className="mb-8 space-y-3 text-sm text-foreground/80 grow">
+                      <li className="flex items-start gap-3">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                        {branch === "Samarinda" ? (
+                          <span>Pemasangan Rp 100.000 <br/><span className="text-xs text-primary font-medium">(Promo s/d Agustus 2025)</span></span>
+                        ) : (
+                          <span>Instalasi mudah oleh teknisi kami</span>
+                        )}
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                        <span>Dukungan gangguan teknisi 24/7</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                        <span>Cocok untuk {pkg.suitableFor}</span>
+                      </li>
+                    </ul>
+
+                    <Button 
+                      asChild 
+                      size="lg"
+                      variant={isFeatured ? "default" : "outline"}
+                      className={cn(
+                        "w-full mt-auto rounded-xl font-bold tracking-wide transition-all h-12",
+                        isFeatured && "shadow-lg shadow-primary/25 hover:shadow-primary/40"
+                      )}
                     >
-                      Pilih paket {pkg.speed} Mbps
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-            </FadeIn>
-          ))}
+                      <a href="https://wa.me/628113396171" target="_blank" rel="noreferrer">
+                        Pilih {pkg.speed} Mbps
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </FadeIn>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -18,11 +19,11 @@ interface MenuItem {
 }
 
 const menus: MenuItem[] = [
-  { label: "Home", targetId: "section-home" },
-  { label: "Service", targetId: "section-service" },
-  { label: "About", targetId: "section-about" },
-  { label: "Installation", targetId: "section-installation" },
-  { label: "Pricing", targetId: "section-pricing" },
+  { label: "Beranda", targetId: "section-home" },
+  { label: "Layanan", targetId: "section-service" },
+  { label: "Tentang", targetId: "section-about" },
+  { label: "Pemasangan", targetId: "section-installation" },
+  { label: "Paket Internet", targetId: "section-pricing" },
 ];
 
 export default function AppNavbar() {
@@ -40,9 +41,10 @@ export default function AppNavbar() {
         {/* Brand */}
         <button
           onClick={() => scrollToSection("section-home")}
-          className="text-2xl font-bold tracking-tight cursor-pointer"
+          className="flex items-center gap-2 cursor-pointer"
         >
-          Tridata
+          <Image src="/logo.jpg" alt="Logo Tridata" width={32} height={32} className="rounded object-cover" />
+          <span className="text-xl font-bold tracking-tight">Tridata</span>
         </button>
 
         {/* Desktop Menu */}
@@ -58,7 +60,7 @@ export default function AppNavbar() {
             </Button>
           ))}
           <Button asChild size="sm" className="ml-2">
-            <a href="https://wa.me/6285136506354" target="_blank">
+            <a href="https://wa.me/628113396171" target="_blank">
               Hubungi
             </a>
           </Button>
@@ -79,7 +81,10 @@ export default function AppNavbar() {
 
             <SheetContent side="left" className="w-64">
               <div className="flex items-center justify-between">
-                <SheetTitle className="text-xl font-bold">Tridata</SheetTitle>
+                <SheetTitle className="flex items-center gap-2 text-xl font-bold">
+                  <Image src="/logo.jpg" alt="Logo Tridata" width={24} height={24} className="rounded object-cover" />
+                  Tridata
+                </SheetTitle>
                 <ModeToggle />
               </div>
 
