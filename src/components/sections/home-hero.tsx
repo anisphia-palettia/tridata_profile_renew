@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { scrollToSection } from "@/lib/scroll-to-section";
+import { FadeIn } from "@/components/ui/fade-in";
 
 export default function HomeHero() {
   return (
@@ -19,25 +20,31 @@ export default function HomeHero() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-md px-6 text-center text-white">
-        <h1 className="mb-5 text-4xl font-bold leading-tight sm:text-5xl">
-          Internet <span className="text-primary-foreground/90 underline decoration-primary underline-offset-4">Cepat</span> &{" "}
-          <span className="text-primary-foreground/90 underline decoration-primary underline-offset-4">Stabil</span>,
-          <br />
-          di Mana Pun Anda Berada
-        </h1>
+        <FadeIn delay={0.1}>
+          <h1 className="mb-5 text-4xl font-bold leading-tight sm:text-5xl">
+            Internet <span className="text-primary-foreground/90 underline decoration-primary underline-offset-4">Cepat</span> &{" "}
+            <span className="text-primary-foreground/90 underline decoration-primary underline-offset-4">Stabil</span>,
+            <br />
+            di Mana Pun Anda Berada
+          </h1>
+        </FadeIn>
 
-        <p className="mb-8 text-sm leading-relaxed text-white/80 sm:text-base">
-          Nikmati layanan Wi-Fi berkualitas dengan jangkauan luas dan koneksi
-          yang cepat dan stabil — di mana pun Anda berada.
-        </p>
+        <FadeIn delay={0.2}>
+          <p className="mb-8 text-sm leading-relaxed text-white/80 sm:text-base">
+            Nikmati layanan Wi-Fi berkualitas dengan jangkauan luas dan koneksi
+            yang cepat dan stabil — di mana pun Anda berada.
+          </p>
+        </FadeIn>
 
-        <Button
-          size="lg"
-          className="w-full max-w-xs"
-          onClick={() => scrollToSection("section-pricing")}
-        >
-          Lihat Paket Internet
-        </Button>
+        <FadeIn delay={0.3}>
+          <Button
+            size="lg"
+            className="w-full max-w-xs"
+            onClick={() => scrollToSection("section-pricing")}
+          >
+            Lihat Paket Internet
+          </Button>
+        </FadeIn>
       </div>
     </section>
   );

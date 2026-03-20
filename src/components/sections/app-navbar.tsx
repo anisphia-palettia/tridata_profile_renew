@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/sheet";
 import { scrollToSection } from "@/lib/scroll-to-section";
 import { Menu } from "lucide-react";
+import { ModeToggle } from "@/components/mode-toggle";
 
 interface MenuItem {
   label: string;
@@ -61,6 +62,9 @@ export default function AppNavbar() {
               Hubungi
             </a>
           </Button>
+          <div className="ml-2">
+            <ModeToggle />
+          </div>
         </div>
 
         {/* Mobile Button */}
@@ -74,7 +78,10 @@ export default function AppNavbar() {
             </SheetTrigger>
 
             <SheetContent side="left" className="w-64">
-              <SheetTitle className="text-xl font-bold">Tridata</SheetTitle>
+              <div className="flex items-center justify-between">
+                <SheetTitle className="text-xl font-bold">Tridata</SheetTitle>
+                <ModeToggle />
+              </div>
 
               <nav className="mt-6 flex flex-col gap-1">
                 {menus.map((menu) => (

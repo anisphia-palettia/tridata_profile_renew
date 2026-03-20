@@ -35,11 +35,11 @@ export default function HomeFooter() {
               Perum Bumi Mas 1 Blok P No.1, Mojorejo, Kec. Taman, Kota Madiun
             </a>
             <a
-              href="https://wa.me/6285136506354"
+              href="https://wa.me/628113396171"
               target="_blank"
               className="block text-sm text-muted-foreground hover:text-foreground hover:underline"
             >
-              0811-3396-105
+              +62 811-3396-171
             </a>
             <a
               href="mailto:admin@tridata.co.id"
@@ -73,7 +73,7 @@ export default function HomeFooter() {
               Cara Order
             </button>
             <a
-              href="https://wa.me/6285136506354"
+              href="https://wa.me/628113396171"
               target="_blank"
               className="block text-sm text-muted-foreground hover:text-foreground hover:underline"
             >
