@@ -2,17 +2,17 @@ module.exports = {
   apps: [
     {
       name: 'tridata-profile',
-      script: 'npm',
-      args: 'start',
-      instances: 'max',       // Menggunakan semua CPU core yang tersedia (Cluster Mode)
-      exec_mode: 'cluster',   // Menjalankan mode cluster agar lebih stabil dan cepat
+      script: 'bun',
+      args: 'run start',      // Menjalankan perintah 'bun start'
+      interpreter: 'none',    // Memberitahu PM2 untuk tidak menggunakan node sebagai default
+      exec_mode: 'fork',      // Catatan: Bun saat ini paling stabil di mode fork dengan PM2
       autorestart: true,
-      watch: false,           // Set ke true hanya jika ingin restart saat ada perubahan file
       max_memory_restart: '1G',
       env: {
         NODE_ENV: 'production',
-        PORT: 3001            // Sesuaikan port jika perlu
+        PORT: 3001
       }
     }
   ]
 };
+
