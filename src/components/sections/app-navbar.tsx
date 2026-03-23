@@ -14,6 +14,7 @@ import {
 import { scrollToSection } from "@/lib/scroll-to-section";
 import { Menu } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle";
+import { getWhatsAppUrl } from "@/lib/constants";
 
 interface MenuItem {
   label: string;
@@ -62,7 +63,7 @@ export default function AppNavbar() {
             </Button>
           ))}
           <Button asChild size="sm" className="ml-2">
-            <a href="https://wa.me/628113396171" target="_blank">
+            <a href={getWhatsAppUrl()} target="_blank">
               Hubungi
             </a>
           </Button>
@@ -112,7 +113,7 @@ export default function AppNavbar() {
                   <ModeToggle />
                 </div>
                 <Button asChild size="lg" className="w-full h-14 bg-primary text-primary-foreground hover:opacity-90 rounded-xl">
-                  <a href="https://wa.me/628113396171" target="_blank" rel="noreferrer" onClick={() => setOpen(false)}>
+                  <a href={getWhatsAppUrl()} target="_blank" rel="noreferrer" onClick={() => setOpen(false)}>
                     Hubungi via WhatsApp
                   </a>
                 </Button>

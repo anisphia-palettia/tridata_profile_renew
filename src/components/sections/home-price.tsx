@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { FadeIn } from "@/components/ui/fade-in";
 import { Check } from "lucide-react";
+import { getWhatsAppUrl } from "@/lib/constants";
 
 import { branches, packagesByBranch, type Branch } from "@/data/pricing";
 
@@ -77,7 +78,7 @@ export default function HomePrice() {
                 <Card className={cn(
                   "relative h-full overflow-hidden transition-all duration-500 hover:-translate-y-2",
                   isFeatured 
-                    ? "border-primary shadow-2xl shadow-primary/10 scale-[1.02] bg-gradient-to-b from-background to-primary/5" 
+                    ? "border-primary shadow-2xl shadow-primary/10 scale-[1.02] bg-linear-to-b from-background to-primary/5" 
                     : "border-muted-foreground/20 bg-background/50 hover:shadow-xl hover:border-primary/50"
                 )}>
                   {/* Decorative popular ribbon */}
@@ -148,7 +149,7 @@ export default function HomePrice() {
                         isFeatured && "shadow-lg shadow-primary/25 hover:shadow-primary/40"
                       )}
                     >
-                      <a href="https://wa.me/628113396171" target="_blank" rel="noreferrer">
+                      <a href={getWhatsAppUrl()} target="_blank" rel="noreferrer">
                         Pilih {pkg.speed} Mbps
                       </a>
                     </Button>

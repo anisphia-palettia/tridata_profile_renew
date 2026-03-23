@@ -3,6 +3,7 @@
 import { scrollToSection } from "@/lib/scroll-to-section";
 import { ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getWhatsAppUrl } from "@/lib/constants";
 
 export default function HomeFooter() {
   const year = new Date().getFullYear();
@@ -10,7 +11,7 @@ export default function HomeFooter() {
   return (
     <footer className="relative border-t bg-background overflow-hidden">
       {/* Decorative gradient */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-linear-to-r from-transparent via-primary/50 to-transparent" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
       {/* Top CTA Banner */}
@@ -26,7 +27,7 @@ export default function HomeFooter() {
           </div>
           <div className="flex gap-3">
             <Button asChild size="lg" className="rounded-full shadow-lg transition-transform hover:-translate-y-1 hover:shadow-primary/20">
-              <a href="https://wa.me/628113396171" target="_blank" rel="noreferrer" className="flex items-center">
+              <a href={getWhatsAppUrl()} target="_blank" rel="noreferrer" className="flex items-center">
                 Daftar Sekarang
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>
@@ -40,7 +41,7 @@ export default function HomeFooter() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <h2 className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-2xl font-extrabold tracking-tight text-transparent w-max">
+            <h2 className="bg-linear-to-r from-primary to-blue-500 bg-clip-text text-2xl font-extrabold tracking-tight text-transparent w-max">
               Trisari Data Indonusa
             </h2>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
@@ -68,7 +69,7 @@ export default function HomeFooter() {
               </li>
               <li>
                 <a
-                  href="https://wa.me/628113396171"
+                  href={getWhatsAppUrl()}
                   target="_blank"
                   rel="noreferrer"
                   className="group flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-primary"
