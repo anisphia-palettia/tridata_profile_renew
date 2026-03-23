@@ -56,7 +56,7 @@ export default function HomeHero() {
         </FadeIn>
 
         <FadeIn delay={0.2}>
-          <h1 className="mb-6 text-5xl font-extrabold leading-tight tracking-tight sm:text-6xl lg:text-7xl">
+          <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             Internet {" "}
             <span className="bg-gradient-to-r from-primary via-blue-400 to-primary bg-clip-text text-transparent bg-[length:200%_auto] animate-pulse">
               Cepat & Stabil

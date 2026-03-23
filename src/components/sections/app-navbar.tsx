@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
+  SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
@@ -79,27 +81,42 @@ export default function AppNavbar() {
               </Button>
             </SheetTrigger>
 
-            <SheetContent side="left" className="w-64">
-              <div className="flex items-center justify-between">
-                <SheetTitle className="flex items-center gap-2 text-xl font-bold">
-                  <Image src="/logo.jpg" alt="Logo Tridata" width={24} height={24} className="rounded object-cover" />
+            <SheetContent side="left" className="w-[85vw] sm:w-[350px] p-6 flex flex-col">
+              <SheetHeader className="text-left mt-2">
+                <SheetTitle className="flex items-center gap-3 text-2xl font-bold">
+                  <Image src="/logo.jpg" alt="Logo Tridata" width={32} height={32} className="rounded object-cover" />
                   Tridata
                 </SheetTitle>
-                <ModeToggle />
-              </div>
+                <SheetDescription className="sr-only">
+                  Navigasi menu utama
+                </SheetDescription>
+              </SheetHeader>
 
-              <nav className="mt-6 flex flex-col gap-1">
+              <nav className="mt-8 flex flex-col gap-2 flex-1">
                 {menus.map((menu) => (
                   <Button
                     key={menu.label + "-mobile"}
                     variant="ghost"
-                    className="justify-start"
+                    size="lg"
+                    className="justify-start text-base font-medium"
                     onClick={() => handleNav(menu.targetId)}
                   >
                     {menu.label}
                   </Button>
                 ))}
               </nav>
+
+              <div className="flex flex-col gap-6 border-t pt-6 mt-auto">
+                <div className="flex items-center justify-between px-2">
+                  <span className="text-sm font-medium text-muted-foreground">Mode Tampilan</span>
+                  <ModeToggle />
+                </div>
+                <Button asChild size="lg" className="w-full h-14 bg-primary text-primary-foreground hover:opacity-90 rounded-xl">
+                  <a href="https://wa.me/628113396171" target="_blank" rel="noreferrer" onClick={() => setOpen(false)}>
+                    Hubungi via WhatsApp
+                  </a>
+                </Button>
+              </div>
             </SheetContent>
           </Sheet>
         </div>
