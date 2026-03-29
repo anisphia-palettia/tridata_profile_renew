@@ -26,7 +26,8 @@ const menus: MenuItem[] = [
   { label: "Layanan", targetId: "section-service" },
   { label: "Tentang", targetId: "section-about" },
   { label: "Pemasangan", targetId: "section-installation" },
-  { label: "Paket Internet", targetId: "section-pricing" },
+  { label: "Paket", targetId: "section-pricing" },
+  { label: "Mitra", targetId: "section-mitra" },
 ];
 
 export default function AppNavbar() {

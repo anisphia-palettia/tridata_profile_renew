@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { FadeIn } from "@/components/ui/fade-in";
 import { Check } from "lucide-react";
-import { getWhatsAppUrl } from "@/lib/constants";
+import { getWhatsAppUrl, WHATSAPP_CONFIG } from "@/lib/constants";
 
 import { branches, packagesByBranch, type Branch } from "@/data/pricing";
 
@@ -149,7 +149,7 @@ export default function HomePrice() {
                         isFeatured && "shadow-lg shadow-primary/25 hover:shadow-primary/40"
                       )}
                     >
-                      <a href={getWhatsAppUrl()} target="_blank" rel="noreferrer">
+                      <a href={getWhatsAppUrl(branch === "Pacitan" ? WHATSAPP_CONFIG.pacitanPhoneNumber : undefined)} target="_blank" rel="noreferrer">
                         Pilih {pkg.speed} Mbps
                       </a>
                     </Button>

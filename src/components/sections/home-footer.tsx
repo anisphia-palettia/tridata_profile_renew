@@ -3,7 +3,7 @@
 import { scrollToSection } from "@/lib/scroll-to-section";
 import { ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { getWhatsAppUrl } from "@/lib/constants";
+import { getWhatsAppUrl, WHATSAPP_CONFIG } from "@/lib/constants";
 
 export default function HomeFooter() {
   const year = new Date().getFullYear();
@@ -75,7 +75,18 @@ export default function HomeFooter() {
                   className="group flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-primary"
                 >
                   <Phone className="h-4 w-4 shrink-0 transition-transform group-hover:scale-110" />
-                  <span>+62 811-3396-171</span>
+                  <span>+62 811-3396-171 (Pusat)</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={getWhatsAppUrl(WHATSAPP_CONFIG.pacitanPhoneNumber)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
+                  <Phone className="h-4 w-4 shrink-0 transition-transform group-hover:scale-110" />
+                  <span>+62 821-4197-5226 (Pacitan)</span>
                 </a>
               </li>
               <li>
@@ -126,6 +137,14 @@ export default function HomeFooter() {
                   onClick={() => scrollToSection("section-installation")}
                 >
                   Cara Pemesanan
+                </button>
+              </li>
+              <li>
+                <button
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                  onClick={() => scrollToSection("section-mitra")}
+                >
+                  Peluang Mitra
                 </button>
               </li>
             </ul>

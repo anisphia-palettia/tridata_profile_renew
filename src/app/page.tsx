@@ -4,6 +4,7 @@ import HomeService from "@/components/sections/home-service";
 import HomeAbout from "@/components/sections/home-about";
 import HomeInstallation from "@/components/sections/home-installation";
 import HomePrice from "@/components/sections/home-price";
+import HomeMitra from "@/components/sections/home-mitra";
 import HomeFooter from "@/components/sections/home-footer";
 
 export default function AppPage() {
@@ -15,6 +16,7 @@ export default function AppPage() {
       <HomeAbout />
       <HomeInstallation />
       <HomePrice />
+      <HomeMitra />
       <HomeFooter />
     </main>
   );
