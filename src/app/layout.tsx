@@ -64,6 +64,46 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "PT Trisari Data Indonusa",
+  alternateName: "Tridata",
+  url: "https://tridata.co.id",
+  logo: "https://tridata.co.id/logo.jpg",
+  sameAs: [],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer support",
+    areaServed: "ID",
+    availableLanguage: "Indonesian",
+  },
+};
+
+const siteLinksJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Tridata",
+  url: "https://tridata.co.id",
+  potentialAction: [
+    {
+      "@type": "ViewAction",
+      name: "Uji Kecepatan Internet",
+      target: "https://tridata.co.id/speedtest",
+    },
+    {
+      "@type": "ViewAction",
+      name: "Lihat Paket Internet",
+      target: "https://tridata.co.id/#section-pricing",
+    },
+    {
+      "@type": "ViewAction",
+      name: "Cara Pemasangan",
+      target: "https://tridata.co.id/#section-installation",
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -76,6 +116,16 @@ export default function RootLayout({
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteLinksJsonLd) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col font-sans">
         <ThemeProvider
           attribute="class"
