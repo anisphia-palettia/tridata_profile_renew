@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { scrollToSection } from "@/lib/scroll-to-section";
 import { FadeIn } from "@/components/ui/fade-in";
-import { ArrowRight, ChevronDown, Zap, ShieldCheck, Wifi } from "lucide-react";
+import { ArrowRight, ChevronDown, Zap, ShieldCheck, Wifi, Gauge } from "lucide-react";
 
 export default function HomeHero() {
   return (
@@ -73,7 +73,7 @@ export default function HomeHero() {
         </FadeIn>
 
         <FadeIn delay={0.4}>
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
             <Button
               size="lg"
               className="h-14 w-full rounded-full px-8 text-base shadow-xl sm:w-auto transition-all hover:scale-105 hover:shadow-primary/25"
@@ -90,6 +90,19 @@ export default function HomeHero() {
             >
               Cara Pemasangan
             </Button>
+            <a
+              href="https://speedtest.antofisalia.my.id/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-14 w-full items-center justify-center gap-2 rounded-full border border-orange-400/60 bg-orange-500/20 px-8 text-base font-semibold text-orange-300 backdrop-blur-md shadow-lg shadow-orange-500/20 transition-all hover:scale-105 hover:bg-orange-500/30 hover:shadow-orange-500/40 hover:text-orange-200 sm:w-auto"
+            >
+              <span className="relative flex h-2.5 w-2.5 shrink-0">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-orange-400" />
+              </span>
+              <Gauge className="h-5 w-5" />
+              Uji Kecepatan
+            </a>
           </div>
         </FadeIn>
       </div>

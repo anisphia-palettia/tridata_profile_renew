@@ -20,7 +20,10 @@ export const metadata: Metadata = {
     "pasang wifi madiun",
     "provider internet cepat",
     "wifi tanpa fup",
-    "trisari data indonusa"
+    "trisari data indonusa",
+    "speedtest tridata",
+    "uji kecepatan internet",
+    "cek kecepatan wifi"
   ],
   authors: [{ name: "PT Trisari Data Indonusa" }],
   creator: "PT Trisari Data Indonusa",
