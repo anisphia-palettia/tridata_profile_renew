@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Gauge, ArrowLeft, Wifi, Zap, Activity } from "lucide-react";
+import SpeedtestEmbed from "@/components/sections/speedtest-embed";
 
 export const metadata: Metadata = {
   title: "Uji Kecepatan Internet Tridata — Speedtest Gratis",
@@ -140,15 +141,8 @@ export default function SpeedtestPage() {
           {/* Speedtest embed — full screen below header */}
           <section className="px-4 pt-4 pb-2">
             <div className="mx-auto max-w-5xl">
-              <div className="overflow-hidden rounded-2xl border shadow-lg">
-                <iframe
-                  src="https://speedtest.antofisalia.my.id/"
-                  title="Speedtest Tridata — Uji Kecepatan Internet"
-                  className="w-full"
-                  style={{ height: "calc(100vh - 96px)", minHeight: "600px", border: "none" }}
-                  loading="lazy"
-                  allow="microphone; camera"
-                />
+              <div className="rounded-2xl border shadow-lg overflow-hidden">
+                <SpeedtestEmbed />
               </div>
               <p className="mt-2 text-center text-xs text-muted-foreground">
                 Didukung oleh infrastruktur{" "}
