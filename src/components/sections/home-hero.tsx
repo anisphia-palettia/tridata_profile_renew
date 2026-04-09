@@ -91,9 +91,7 @@ export default function HomeHero() {
               Cara Pemasangan
             </Button>
             <a
-              href="https://speedtest.antofisalia.my.id/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/speedtest"
               className="inline-flex h-14 w-full items-center justify-center gap-2 rounded-full border border-orange-400/60 bg-orange-500/20 px-8 text-base font-semibold text-orange-300 backdrop-blur-md shadow-lg shadow-orange-500/20 transition-all hover:scale-105 hover:bg-orange-500/30 hover:shadow-orange-500/40 hover:text-orange-200 sm:w-auto"
             >
               <span className="relative flex h-2.5 w-2.5 shrink-0">
